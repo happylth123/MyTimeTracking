@@ -12,7 +12,7 @@ namespace MyTimeTracking.Data.Models
         /// <summary>
         /// UserId
         /// </summary>
-        public string Id { get; set; }
+        public Guid ID { get; set; }
 
         /// <summary>
         /// User Email

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTimeTracking.DMSSite.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace MyTimeTracking.DMSSite
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            DIConfig.RegisterComponents();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

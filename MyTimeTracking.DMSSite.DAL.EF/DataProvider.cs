@@ -1,4 +1,5 @@
 ﻿using MyTimeTracking.Data.EF.DataContext;
+using MyTimeTracking.DMSSite.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyTimeTracking.DMSSite.DAL.EF
 {
-    public class DataProvider
+    public partial class DataProvider : IDataProvider
     {
         private readonly MyTimeTrackingDataContext dbcontext;
 

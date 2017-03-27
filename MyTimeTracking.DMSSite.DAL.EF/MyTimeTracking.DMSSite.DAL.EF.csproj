@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DataProvider_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,14 @@
     <ProjectReference Include="..\MyTimeTracking.Data.EF\MyTimeTracking.Data.EF.csproj">
       <Project>{CE72DFA6-4EF1-4576-9DE2-2A9D5634A21D}</Project>
       <Name>MyTimeTracking.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTimeTracking.Data\MyTimeTracking.Data.csproj">
+      <Project>{54D3B976-7A1E-48AB-A86D-E5A610B6704F}</Project>
+      <Name>MyTimeTracking.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTimeTracking.DMSSite.BLL\MyTimeTracking.DMSSite.BLL.csproj">
+      <Project>{5736D021-5F49-40AC-8B4D-B34723B9C0D8}</Project>
+      <Name>MyTimeTracking.DMSSite.BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

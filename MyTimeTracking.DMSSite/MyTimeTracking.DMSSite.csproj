@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -126,12 +130,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DIConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseVM.cs" />
+    <Compile Include="Models\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +182,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\ControllerBase\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -181,6 +192,24 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyTimeTracking.Data.EF\MyTimeTracking.Data.EF.csproj">
+      <Project>{CE72DFA6-4EF1-4576-9DE2-2A9D5634A21D}</Project>
+      <Name>MyTimeTracking.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTimeTracking.Data\MyTimeTracking.Data.csproj">
+      <Project>{54D3B976-7A1E-48AB-A86D-E5A610B6704F}</Project>
+      <Name>MyTimeTracking.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTimeTracking.DMSSite.BLL\MyTimeTracking.DMSSite.BLL.csproj">
+      <Project>{5736D021-5F49-40AC-8B4D-B34723B9C0D8}</Project>
+      <Name>MyTimeTracking.DMSSite.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTimeTracking.DMSSite.DAL.EF\MyTimeTracking.DMSSite.DAL.EF.csproj">
+      <Project>{53655F99-B2F1-4A84-9898-6A8A5E2ABE71}</Project>
+      <Name>MyTimeTracking.DMSSite.DAL.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

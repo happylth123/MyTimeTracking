@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyTimeTracking.DMSSite.BLL
+namespace MyTimeTracking.DMSSite.BLL.Models
 {
-    public class Class1
+    public abstract class ModelBase
     {
+        public virtual Guid ID { get; set; }
     }
 }

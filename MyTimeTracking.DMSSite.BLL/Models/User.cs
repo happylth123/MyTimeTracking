@@ -5,15 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyTimeTracking.Data.Models
+namespace MyTimeTracking.DMSSite.BLL.Models
 {
-    public class User
+    public class User : ModelBase
     {
-        /// <summary>
-        /// UserId
-        /// </summary>
-        public Guid ID { get; set; }
-
         /// <summary>
         /// User Email
         /// </summary>

@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201703261254351_updateUserIdToGuidID.Designer.cs">
       <DependentUpon>201703261254351_updateUserIdToGuidID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703271543128_addUpdateOnToUser.cs" />
+    <Compile Include="Migrations\201703271543128_addUpdateOnToUser.Designer.cs">
+      <DependentUpon>201703271543128_addUpdateOnToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261254351_updateUserIdToGuidID.resx">
       <DependentUpon>201703261254351_updateUserIdToGuidID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271543128_addUpdateOnToUser.resx">
+      <DependentUpon>201703271543128_addUpdateOnToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

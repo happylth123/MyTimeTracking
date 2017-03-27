@@ -1,11 +1,14 @@
 ﻿using Autofac;
+using Autofac.Integration.Mvc;
 using MyTimeTracking.Data.EF.DataContext;
 using MyTimeTracking.DMSSite.BLL;
 using MyTimeTracking.DMSSite.DAL.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MyTimeTracking.DMSSite.App_Start
 {
@@ -30,6 +33,12 @@ namespace MyTimeTracking.DMSSite.App_Start
             });
 
             builder.RegisterType<BLL.Services.UserService>().InstancePerLifetimeScope();
+
+
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

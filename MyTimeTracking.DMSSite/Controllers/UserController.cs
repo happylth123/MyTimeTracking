@@ -10,17 +10,18 @@ namespace MyTimeTracking.DMSSite.Controllers
 {
     public class UserController : ControllerBase
     {
-        //private readonly UserService userService;
+        private readonly UserService userService;
 
-        public UserController()
+
+        public UserController(UserService userService)
         {
-            //this.userService = userService;
+            this.userService = userService;
         }
 
         // GET: User
         public ActionResult Index()
         {
-            //var models = userService.GetAll().Select(o => o.ToViewModel());
+            var models = userService.GetAll().Select(o => o.ToViewModel());
             return View();
         }
     }

@@ -1,0 +1,3 @@
+1、DIconfig Autofac 记得要有builder.Build();
+
+2、站点层记得也要有数据库连接字符串，不然默认会去该层的APP_Data里去找数据库，如果下一层有连接，站点层没有，就会有数据库连接对不上。InnerException = {"Cannot attach the file 'D:\\MyTimeTracking\\MyTimeTracking.DMSSite\\App_Data\\MyTimeTracking.mdf' as database 'MyTimeTracking'."} （本站数据库不是放在App_Data里）

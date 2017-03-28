@@ -19,9 +19,10 @@ namespace MyTimeTracking.DMSSite.Controllers
         }
 
         // GET: User
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 6)
         {
-            var models = userService.GetAll().Select(o => o.ToViewModel());
+            int totalCount = 0;
+            var models = userService.GetAll(out totalCount, page - 1, pageSize).Select(o => o.ToViewModel());
             return View();
         }
     }

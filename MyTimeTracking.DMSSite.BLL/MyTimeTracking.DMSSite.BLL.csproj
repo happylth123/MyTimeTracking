@@ -66,6 +66,10 @@
       <Project>{54D3B976-7A1E-48AB-A86D-E5A610B6704F}</Project>
       <Name>MyTimeTracking.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyTimeTracking.Infrastructures\MyTimeTracking.Infrastructures.csproj">
+      <Project>{AB9517EA-4C27-4E9F-BE58-AC4C3452BCC4}</Project>
+      <Name>MyTimeTracking.Infrastructures</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

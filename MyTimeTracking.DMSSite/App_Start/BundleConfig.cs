@@ -8,6 +8,17 @@ namespace MyTimeTracking.DMSSite
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // Can not remove /content/cores/ otherwise Icon is disappeared
+            bundles.Add(new StyleBundle("~/Content/cores/globalStyles").Include(
+                    "~/Content/cores/font-awesome.min.css",
+                    "~/Content/cores/simple-line-icons.min.css",
+                    "~/Content/cores/bootstrap.min.css",
+                    "~/Content/cores/uniform.default.css"));
+
+            bundles.Add(new StyleBundle("~/Scripts/datatables/plugins/bootstrap/listCategoryPlugin").Include(
+                "~/Scripts/select2/select2.css",
+                "~/Scripts/datatables/plugins/bootstrap/dataTables.bootstrap.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -24,7 +35,6 @@ namespace MyTimeTracking.DMSSite
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }

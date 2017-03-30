@@ -1,5 +1,6 @@
 ﻿using MyTimeTracking.DMSSite.BLL.Services;
 using MyTimeTracking.DMSSite.Extensions;
+using MyTimeTracking.Infrastructures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace MyTimeTracking.DMSSite.Controllers
         {
             int totalCount = 0;
             var models = userService.GetAll(out totalCount, page - 1, pageSize).Select(o => o.ToViewModel());
-            return View();
+            return View(models.AsPagedList(totalCount, page, pageSize));
         }
     }
 }

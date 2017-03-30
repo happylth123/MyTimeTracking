@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\PagedList.cs" />
+    <Compile Include="Exceptions\PagedListExtensions.cs" />
     <Compile Include="Exceptions\QueryExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

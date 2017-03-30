@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@RenderBody()
+
+@section CategoryLevelStyles{
+
+    @Styles.Render("~/Scripts/datatables/plugins/bootstrap/listCategoryPlugin")
+    @*@RenderSection("PageLevelStyles", required: false)*@
+}
+
+ 
+

@@ -1,0 +1,53 @@
+﻿@model MyTimeTracking.Infrastructures.IPagedList
+@{
+    if (Model.TotalItemCount == 0)
+    {
+        return;
+    }
+
+    var action = Request.RequestContext.RouteData.Values["action"].ToString();
+    var control = Request.RequestContext.RouteData.Values["controller"].ToString();
+    Func<int, string> PagerUrl = (index) =>
+    {
+        var routeValues = new RouteValueDictionary();
+        routeValues["page"] = index;
+
+        foreach (string key in Request.QueryString.Keys)
+        {
+            if (!routeValues.ContainsKey(key))
+            {
+                routeValues[key] = Request.QueryString[key];
+            }
+        }
+        return Url.Action(action, control, routeValues);
+    };
+
+    var startPageIndex = Model.CurrentPageIndex <= 5 ? 1 : Model.CurrentPageIndex - 5;
+    var endPageIndex = Model.CurrentPageIndex + 5 > Model.TotalPageCount ? Model.TotalPageCount : Model.CurrentPageIndex + 5;
+}
+
+
+<div class="row">
+    <div class="col-md-5 col-sm-12">
+        <div class="dataTables_info" role="status" aria-live="polite">Showing @Model.StartRecordIndex to @Model.EndRecordIndex of @Model.TotalItemCount entries</div>
+    </div>
+    @if (Model.TotalPageCount > 1)
+    {
+        <div class="col-md-7 col-sm-12">
+            <div class="dataTables_paginate paging_bootstrap_full_number">
+                <ul class="pagination" style="visibility: visible;">
+                    <li class="prev  @(Model.HasPrev ? "" : "disabled")"><a title="First" href="@PagerUrl(1)"><i class="fa fa-angle-double-left"></i></a></li>
+                    <li class="prev  @(Model.HasPrev ? "" : "disabled")"><a title="Prev" href="@PagerUrl(Model.PrevPageIndex)"><i class="fa fa-angle-left"></i></a></li>
+                    @for (var i = startPageIndex; i <= endPageIndex; i++)
+                    {
+                        <li class="@((i == Model.CurrentPageIndex) ? "active" : "")">
+                            <a href="@PagerUrl(i)">@i</a>
+                        </li>
+                    }
+                    <li class="next  @(Model.HasNext ? "" : "disabled")"><a title="Next" href="@PagerUrl(Model.NextPageIndex)"><i class="fa fa-angle-right"></i></a></li>
+                    <li class="next  @(Model.HasNext ? "" : "disabled")"><a title="Last" href="@PagerUrl(Model.TotalPageCount)"><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>
